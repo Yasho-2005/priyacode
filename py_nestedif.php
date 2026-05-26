@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python Ternary Operator</title>
+    <title>Python Nested If Statements</title>
 
     <link rel="stylesheet" href="style.css?v=1.2">
     <link rel="stylesheet" href="py_style.css?v=1.2">
@@ -16,41 +16,21 @@
         .pink-bold { color: #ff2d78; font-weight: bold; }
         .cyan-bold { color: #00ffe7; font-weight: bold; }
         .purple-bold { color: #bd00ff; font-weight: bold; }
-        
-        /* Cleaned Mascot Section (No separate background or neon box borders) */
-        .mascot-container {
-            display: flex;
-            align-items: center;
-            padding: 10px 0;
-            margin: 20px 0;
-            background: none;
-            border: none;
-        }
-        .dolphin-mascot {
-            font-size: 3rem;
-            margin-right: 20px;
-            user-select: none;
-        }
-        .chat-bubble {
-            color: #ffffff;
-            font-size: 1rem;
-            line-height: 1.6;
-        }
 
         /* High-Contrast Visibility Fixes for Dark REPL Terminals */
         .repl-code {
-            background-color: #0d1117 !important; /* Dark background */
-            color: #ffffff !important;            /* Force clear white text visibility */
+            background-color: #0d1117 !important; 
+            color: #ffffff !important;            
             padding: 15px;
             border-radius: 6px;
             font-family: 'Courier New', Courier, monospace;
         }
         .code-line {
-            color: #ffffff !important;            /* Ensures custom text doesn't fall back to black */
+            color: #ffffff !important;            
             margin-bottom: 4px;
         }
         .ln {
-            color: #58a6ff !important;            /* High visibility blue line numbers */
+            color: #58a6ff !important;            
             margin-right: 15px;
             user-select: none;
             opacity: 0.8;
@@ -72,7 +52,7 @@
             <div class="python-page-wrapper">
 
                 <div class="python-breadcrumb">
-                    python-tutorial / <span>ternary_operator.py</span>
+                    python-tutorial / <span>nested_if.py</span>
                 </div>
 
                 <div class="py-wrap">
@@ -84,7 +64,7 @@
                         <div class="py-dot" style="background:#27c93f"></div>
 
                         <span class="py-topbar-title">
-                            ternary_operator.py — Python Tutorial
+                            nested_if.py — Python Tutorial
                         </span>
 
                     </div>
@@ -92,20 +72,11 @@
                     <div class="py-body">
 
                         <h1 class="page-heading">
-                            <span>#</span> Python Ternary Operator
+                            <span>#</span> Python Nested If Statements
                         </h1>
 
                         <div class="py-banner">
-                            Python's ternary operator evaluated as a <b>Conditional Expression</b> gives us a shortcut to choose between two outcomes based on a condition, assigning values dynamically on a single row.
-                        </div>
-
-                        <div class="mascot-container">
-                            <div class="dolphin-mascot">🐬</div>
-                            <div class="chat-bubble">
-                                "🏋️‍♂️ <strong>NO WEAK DATA ALLOWED!</strong> 💅 <br>
-                                The <strong>TERNARY</strong> condition is like a lightning-fast fitness test for your variables. <br>
-                                We evaluate the test directly in the middle! If your value passes—BOOM, it grabs the left prize. If it fails, it's relegated to the right-side bench! Keep those execution standards high and single-lined! ✨💪"
-                            </div>
+                            A <b>nested if statement</b> is an conditional block placed entirely inside another condition statement block. It allows your program to run layered verification checkpoints, where the inner test only executes if the outer test passes successfully.
                         </div>
 
                         <div class="py-section">
@@ -118,22 +89,22 @@
 
                                 <div>
                                     <span class="k"># what:</span>
-                                    an inline conditional structure returning an alternative value based on evaluation
+                                    conditional checking statements tucked completely within the block room of an existing gate
                                 </div>
 
                                 <div>
                                     <span class="k"># why:</span>
-                                    replaces tedious 4-line `if-else` blocks down to a super-clean structural layout
+                                    handles complex dependencies that require validation in a strict sequential order
                                 </div>
 
                                 <div>
                                     <span class="k"># where:</span>
-                                    inside variable declarations, arguments passing, and formatting output statements
+                                    secure multi-factor login loops, nested permission matrix validations, and data auditing chains
                                 </div>
 
                                 <div>
                                     <span class="k"># how:</span>
-                                    <span class="s">value_if_true if condition else value_if_false</span>
+                                    <span class="s">if outer_test:<br>&nbsp;&nbsp;&nbsp;&nbsp;if inner_test:</span>
                                 </div>
 
                             </div>
@@ -148,63 +119,111 @@
 
                             <div class="repl" style="margin-bottom: 25px;">
                                 <div class="repl-bar">
-                                    <span class="ex-label">BEFORE</span>
-                                    <span class="badge" style="background: #444;">multiline block boiler</span>
+                                    <span class="ex-label">EXAMPLE 01 (EASY)</span>
+                                    <span class="badge" style="background: #238636; color: #fff;">Movie Theatre Check</span>
                                 </div>
 
                                 <div class="repl-code">
                                     <div class="code-line">
                                         <span class="ln">1</span>
-                                        <span><span class="var">age</span> <span class="op2">=</span> <span class="num">20</span></span>
+                                        <span><span class="var">age</span> <span class="op2">=</span> <span class="num">15</span></span>
                                     </div>
                                     <div class="code-line">
                                         <span class="ln">2</span>
-                                        <span><span class="purple-bold">if</span> <span class="var">age</span> <span class="op2">&gt;=</span> <span class="num">18</span>:</span>
+                                        <span><span class="var">has_ticket</span> <span class="op2">=</span> <span class="purple-bold">True</span></span>
                                     </div>
                                     <div class="code-line">
                                         <span class="ln">3</span>
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="var">status</span> <span class="op2">=</span> <span class="s">"Access Granted"</span></span>
+                                        <span><span class="purple-bold">if</span> <span class="var">has_ticket</span> <span class="op2">==</span> <span class="purple-bold">True</span>:</span>
                                     </div>
                                     <div class="code-line">
                                         <span class="ln">4</span>
-                                        <span><span class="purple-bold">else</span>:</span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="s">"Welcome to the cinema theater!"</span>)</span>
                                     </div>
                                     <div class="code-line">
                                         <span class="ln">5</span>
-                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="var">status</span> <span class="op2">=</span> <span class="s">"Access Denied"</span></span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple-bold">if</span> <span class="var">age</span> <span class="op2">&gt;=</span> <span class="num">18</span>:</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">6</span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="s">"You are allowed to watch R-rated movies."</span>)</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">7</span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple-bold">else</span>:</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">8</span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="s">"PG content only. Enjoy the show!"</span>)</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">9</span>
+                                        <span><span class="purple-bold">else</span>:</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">10</span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="s">"Please purchase a ticket at the front counter."</span>)</span>
                                     </div>
                                 </div>
 
                                 <div class="output-bar">
                                     <span class="arrow">▶</span>
-                                    <span class="val" style="color: #00ffe7;">Access Granted</span>
+                                    <span class="val" style="color: #00ffe7;">Welcome to the cinema theater!<br>PG content only. Enjoy the show!</span>
                                 </div>
                             </div>
 
-                            <div class="repl">
+                            <div class="repl" style="margin-bottom: 25px;">
                                 <div class="repl-bar">
-                                    <span class="ex-label">AFTER</span>
-                                    <span class="badge">the ternary shortcut</span>
+                                    <span class="ex-label">EXAMPLE 02 (ADVANCED)</span>
+                                    <span class="badge">multi-layer security access routine</span>
                                 </div>
 
                                 <div class="repl-code">
                                     <div class="code-line">
                                         <span class="ln">1</span>
-                                        <span><span class="var">age</span> <span class="op2">=</span> <span class="num">20</span></span>
+                                        <span><span class="var">has_token</span> <span class="op2">=</span> <span class="purple-bold">True</span></span>
                                     </div>
                                     <div class="code-line">
                                         <span class="ln">2</span>
-                                        <span><span class="var">status</span> <span class="op2">=</span> <span class="s">"Access Granted"</span> <span class="purple-bold">if</span> <span class="var">age</span> <span class="op2">&gt;=</span> <span class="num">18</span> <span class="purple-bold">else</span> <span class="s">"Access Denied"</span></span>
+                                        <span><span class="var">is_admin</span> <span class="op2">=</span> <span class="purple-bold">False</span></span>
                                     </div>
                                     <div class="code-line">
                                         <span class="ln">3</span>
-                                        <span><span class="fn">print</span>(<span class="var">status</span>)</span>
+                                        <span><span class="purple-bold">if</span> <span class="var">has_token</span> <span class="op2">==</span> <span class="purple-bold">True</span>:</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">4</span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="s">"Token Verified."</span>)</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">5</span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple-bold">if</span> <span class="var">is_admin</span> <span class="op2">==</span> <span class="purple-bold">True</span>:</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">6</span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="s">"Welcome, Commander. Full access open."</span>)</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">7</span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="purple-bold">else</span>:</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">8</span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="s">"Access Denied: Admin clearance needed."</span>)</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">9</span>
+                                        <span><span class="purple-bold">else</span>:</span>
+                                    </div>
+                                    <div class="code-line">
+                                        <span class="ln">10</span>
+                                        <span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="fn">print</span>(<span class="s">"System Breach: Invalid hardware key token."</span>)</span>
                                     </div>
                                 </div>
 
                                 <div class="output-bar">
                                     <span class="arrow">▶</span>
-                                    <span class="val" style="color: #00ffe7;">Access Granted</span>
+                                    <span class="val" style="color: #00ffe7;">Token Verified.<br>Access Denied: Admin clearance needed.</span>
                                 </div>
                             </div>
 
@@ -217,7 +236,7 @@
                             </div>
 
                             <p>
-                                Unlike language syntaxes like JavaScript or C++ which deploy symbolic tokens like <code>? :</code> (e.g. <code>condition ? true : false</code>), Python uses descriptive english keywords: <code class="cyan-bold">if</code> and <code class="pink-bold">else</code>. However, pay attention to the order: the true value comes <b>first</b>, followed by the actual check step!
+                                Watch your spaces closely! The inner <code>if</code> block is indented **4 spaces** from the left margins, which means its inner execution content commands must be indented a full **8 spaces**! Keep your spacing rules aligned to escape structural indentation layout errors.
                             </p>
 
                         </div>
@@ -236,12 +255,12 @@
                                         TASK 01
                                     </div>
 
-                                    <h4>Score Evaluator</h4>
+                                    <h4>Atm Cash Dispenser Check</h4>
 
                                     <ul>
-                                        <li><span>score</span> = 85</li>
-                                        <li>Assign "Pass" if score &gt;= 50 else "Fail"</li>
-                                        <li>Use a single-line ternary layout expression</li>
+                                        <li><span>pin_valid</span> = True, <span>balance</span> = 250</li>
+                                        <li>If PIN passes, run an inner balance check</li>
+                                        <li>Print clear warnings for separate failure paths</li>
                                     </ul>
 
                                 </div>
@@ -252,12 +271,12 @@
                                         TASK 02
                                     </div>
 
-                                    <h4>Toggle Node Indicator</h4>
+                                    <h4>Package Weight Router</h4>
 
                                     <ul>
-                                        <li><span>is_active</span> = False</li>
-                                        <li>Set <span>color</span> variable to "Green" if active else "Red"</li>
-                                        <li>Print result output stream</li>
+                                        <li><span>is_domestic</span> = True, <span>weight</span> = 34</li>
+                                        <li>If domestic, check if heavy (&gt; 20kg)</li>
+                                        <li>Assign standard or special routing tags</li>
                                     </ul>
 
                                 </div>
@@ -268,12 +287,12 @@
                                         TASK 03
                                     </div>
 
-                                    <h4>Even or Odd Filter</h4>
+                                    <h4>Nested Number Bounds</h4>
 
                                     <ul>
-                                        <li><span>num</span> = 7</li>
-                                        <li>Check parity via modulus remainder tracking operation</li>
-                                        <li>Set output to "Even" or "Odd" dynamically</li>
+                                        <li>Set variable test values</li>
+                                        <li>If positive, check if value is even or odd</li>
+                                        <li>Print accurate diagnostic tracking messages</li>
                                     </ul>
 
                                 </div>
@@ -284,22 +303,22 @@
 
                         <div class="mini-quiz-section">
 
-                            <h4>🐍 Python Ternary Challenge</h4>
+                            <h4>🐍 Python Nested Challenge</h4>
 
                             <div class="quiz-item">
-                                <p>1. Which keyword acts as the second separator clause inside an inline conditional expression?</p>
+                                <p>1. How many extra spaces are typically added to indent code for each deep level of nesting?</p>
 
                                 <input type="text"
                                     id="q1"
-                                    placeholder="Type separating keyword...">
+                                    placeholder="Type number of spaces...">
                             </div>
 
                             <div class="quiz-item">
-                                <p>2. What will the following statement evaluate to: <b>"Yes" if 5 &lt; 2 else "No"</b>?</p>
+                                <p>2. Will an inner nested block ever evaluate if the outer initial conditional gate defaults to False?</p>
 
                                 <input type="text"
                                     id="q2"
-                                    placeholder="Type expected string answer value...">
+                                    placeholder="Yes or No...">
                             </div>
 
                             <p id="quiz-feedback"
@@ -344,7 +363,7 @@
             const fields = [
                 {
                     id: 'q1',
-                    ans: "else"
+                    ans: "4"
                 },
                 {
                     id: 'q2',
@@ -370,13 +389,13 @@
             if (allCorrect) {
                 feedback.style.color = "#58a6ff";
                 feedback.innerHTML =
-                    "✔ ACCESS GRANTED — Short-form execution expressions perfectly validated ⚡";
+                    "✔ ACCESS GRANTED — Nested matrix validations successfully calculated ⚡";
                 return true;
             } else {
                 event.preventDefault();
                 feedback.style.color = "#ff4d4d";
                 feedback.innerHTML =
-                    "❌ ERROR: Sub-conditional components out of sequence balance.";
+                    "❌ ERROR: Indentation offsets or processing flow sequence answers incorrect.";
 
                 document
                     .querySelector('.mini-quiz-section')
