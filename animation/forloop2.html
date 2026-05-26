@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>User Input - Star Printer</title>
+  <style>
+    body {
+      background: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 10px;
+      width: 100px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 10px 16px;
+      background: #444;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      background: #666;
+    }
+
+    .stars {
+      font-size: 36px;
+      min-height: 60px;
+      margin: 20px 0;
+    }
+
+    .code-box {
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      white-space: pre-wrap;
+      text-align: left;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌟 Print Stars using <code>for</code> and User Input</h1>
+
+  <input type="number" id="starCount" min="1" max="50" placeholder="How many?" />
+  <br>
+  <button onclick="printStars()">Print Stars</button>
+
+  <div class="stars" id="starOutput">✨</div>
+
+  <div class="code-box">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int i, n;
+    printf("Enter number of stars: ");
+    scanf("%d", &n);
+
+    <span id="forCode">for(i = 0; i &lt; n; i++) {
+        printf("*");
+    }</span>
+    return 0;
+}
+</code>
+  </div>
+
+  <script>
+    const output = document.getElementById("starOutput");
+    const forCode = document.getElementById("forCode");
+
+    function printStars() {
+      const count = parseInt(document.getElementById("starCount").value);
+      output.textContent = "";
+      forCode.classList.add("highlight");
+
+      if (isNaN(count) || count < 1 || count > 50) {
+        output.textContent = "❗ Please enter a number between 1 and 50";
+        forCode.classList.remove("highlight");
+        return;
+      }
+
+      let i = 0;
+      const interval = setInterval(() => {
+        if (i < count) {
+          output.textContent += "⭐";
+          i++;
+        } else {
+          clearInterval(interval);
+          setTimeout(() => forCode.classList.remove("highlight"), 500);
+        }
+      }, 200);
+    }
+  </script>
+
+</body>
+</html>

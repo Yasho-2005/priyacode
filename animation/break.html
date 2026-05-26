@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Break Statement - Candy Picker</title>
+  <style>
+    body {
+      background-color: #181818;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 12px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      background-color: #666;
+    }
+
+    .candies {
+      font-size: 40px;
+      margin: 20px 0;
+      min-height: 60px;
+    }
+
+    .code-box {
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      white-space: pre-wrap;
+      text-align: left;
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍭 Candy Picker using <code>break</code></h1>
+
+  <button onclick="startPicking()">Start Picking Candies</button>
+
+  <div class="candies" id="candyOutput">🙂</div>
+
+  <div class="code-box">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    char candies[] = {'🍬', '🍬', '🍬', '🍋', '🍬'};
+    int i;
+
+    <span id="loopCode">for(i = 0; i &lt; 5; i++) {
+        if(candies[i] == '🍋') {
+            break;
+        }
+        printf("%c ", candies[i]);
+    }</span>
+
+    return 0;
+}
+</code>
+  </div>
+
+  <script>
+    const candyOutput = document.getElementById("candyOutput");
+    const loopCode = document.getElementById("loopCode");
+
+    function startPicking() {
+      const candyList = ['🍬', '🍬', '🍬', '🍋', '🍬'];
+      candyOutput.textContent = "";
+      loopCode.classList.add("highlight");
+
+      let i = 0;
+      const interval = setInterval(() => {
+        if (candyList[i] === '🍋') {
+          candyOutput.textContent += '❌ (Sour Candy Found!)';
+          clearInterval(interval);
+          setTimeout(() => loopCode.classList.remove("highlight"), 800);
+          return;
+        }
+        candyOutput.textContent += candyList[i] + " ";
+        i++;
+        if (i >= candyList.length) {
+          clearInterval(interval);
+          setTimeout(() => loopCode.classList.remove("highlight"), 800);
+        }
+      }, 500);
+    }
+  </script>
+
+</body>
+</html>

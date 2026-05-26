@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>2D Array - Theater Seats</title>
+  <style>
+    body {
+      background: #1a1a1a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .seating-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 60px);
+      gap: 15px;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .seat {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      background-color: #444;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .seat.booked {
+      background-color: #2ecc71; /* green */
+      color: #000;
+    }
+
+    .seat-icon {
+      font-size: 20px;
+      margin-bottom: 4px;
+    }
+
+    .code-box {
+      background: #2c2c2c;
+      padding: 20px;
+      margin-top: 20px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+      white-space: pre-wrap;
+      text-align: left;
+    }
+
+    .highlight {
+      background: yellow;
+      color: black;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 480px) {
+      .seat {
+        width: 50px;
+        height: 50px;
+        font-size: 14px;
+      }
+
+      .seat-icon {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎭 Book Your Seat</h1>
+  <p>Click a seat to book or unbook (2D Array Example)</p>
+
+  <div class="seating-grid" id="seatingGrid"></div>
+
+  <div class="code-box">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int seats[5][4] = {0}; // 5 rows, 4 cols
+
+    <span id="bookLine">seats[row][col] = 1; // booked</span>
+    <br>
+    <span id="unbookLine">seats[row][col] = 0; // unbooked</span>
+
+    return 0;
+}
+</code>
+  </div>
+
+  <script>
+    const grid = document.getElementById("seatingGrid");
+    const bookLine = document.getElementById("bookLine");
+    const unbookLine = document.getElementById("unbookLine");
+
+    const rows = 5;
+    const cols = 4;
+
+    const seats = Array.from({ length: rows }, () =>
+      Array(cols).fill(0)
+    );
+
+    function renderSeats() {
+      grid.innerHTML = '';
+      for (let i = 0; i < rows; i++) {
+        for (let j = 0; j < cols; j++) {
+          const seat = document.createElement('div');
+          seat.className = 'seat';
+          if (seats[i][j] === 1) seat.classList.add('booked');
+
+          seat.innerHTML = `<div class="seat-icon">🎟️</div>${i},${j}`;
+          seat.onclick = () => toggleSeat(i, j);
+          grid.appendChild(seat);
+        }
+      }
+    }
+
+    function toggleSeat(i, j) {
+      if (seats[i][j] === 0) {
+        seats[i][j] = 1;
+        highlight(bookLine);
+      } else {
+        seats[i][j] = 0;
+        highlight(unbookLine);
+      }
+      renderSeats();
+    }
+
+    function highlight(el) {
+      [bookLine, unbookLine].forEach(e => e.classList.remove('highlight'));
+      el.classList.add('highlight');
+      setTimeout(() => el.classList.remove('highlight'), 800);
+    }
+
+    renderSeats();
+  </script>
+
+</body>
+</html>

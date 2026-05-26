@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Do-While Loop Example</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 18px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    .output {
+      font-size: 40px;
+      margin-top: 20px;
+      min-height: 60px;
+    }
+
+    .code-box {
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      white-space: pre-wrap;
+      text-align: left;
+      margin: 30px auto;
+      max-width: 500px;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 480px) {
+      .output {
+        font-size: 28px;
+      }
+
+      button {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🥬 Do-While Loop Example</h1>
+
+  <p>Click the button to start eating veggie until you're full!</p>
+  <button onclick="eatDonuts()">Eat 🥬</button>
+
+  <div class="output" id="donutOutput">😋</div>
+
+  <div class="code-box">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int isFull = 0;
+    <span id="line1">do {</span>
+        <span id="line2">printf("Eating veggie...\\n");</span>
+        <span id="line3">isFull++;</span>
+    <span id="line4">} while (isFull &lt; 3);</span>
+    return 0;
+}
+</code>
+  </div>
+
+  <script>
+    const output = document.getElementById("donutOutput");
+    const lines = [
+      document.getElementById("line1"),
+      document.getElementById("line2"),
+      document.getElementById("line3"),
+      document.getElementById("line4")
+    ];
+
+    function eatDonuts() {
+      let isFull = 0;
+      output.textContent = "";
+      highlightLine(-1);
+
+      function eatOne() {
+        if (isFull < 3) {
+          highlightLine(0);
+          setTimeout(() => {
+            highlightLine(1);
+            output.textContent += "🥬 ";
+            setTimeout(() => {
+              highlightLine(2);
+              isFull++;
+              setTimeout(() => {
+                highlightLine(3);
+                eatOne(); // loop again
+              }, 600);
+            }, 600);
+          }, 600);
+        } else {
+          highlightLine(-1);
+          output.textContent += "\n✅ You're full!";
+        }
+      }
+
+      eatOne();
+    }
+
+    function highlightLine(index) {
+      lines.forEach((line, i) => {
+        if (i === index) line.classList.add("highlight");
+        else line.classList.remove("highlight");
+      });
+    }
+  </script>
+
+</body>
+</html>

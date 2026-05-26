@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Menu - switch example</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .menu-buttons {
+      margin: 20px 0;
+    }
+
+    .menu-buttons button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 18px;
+      border-radius: 8px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .menu-buttons button:hover {
+      background-color: #555;
+    }
+
+    .output {
+      font-size: 60px;
+      margin: 20px 0;
+      height: 80px;
+    }
+
+    .code-box {
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      white-space: pre-wrap;
+      text-align: left;
+      margin: auto;
+      max-width: 400px;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    @media (max-width: 480px) {
+      .output {
+        font-size: 40px;
+      }
+
+      .menu-buttons button {
+        font-size: 16px;
+        padding: 10px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🍔 Food Menu using <code>switch</code></h1>
+
+  <div class="menu-buttons">
+    <button onclick="chooseItem('p')">🍕 Pizza</button>
+    <button onclick="chooseItem('b')">🍔 Burger</button>
+    <button onclick="chooseItem('f')">🍟 Fries</button>
+    <button onclick="chooseItem('')">❌ Random</button>
+  </div>
+
+  <div class="output" id="foodOutput">🤔</div>
+
+  <div class="code-box">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    char item = 'p';
+
+    switch (item) {
+        <span id="casePizza">case 'p':
+            printf("Pizza ordered!");
+            break;</span>
+        <span id="caseBurger">case 'b':
+            printf("Burger ordered!");
+            break;</span>
+        <span id="caseFries">case 'f':
+            printf("Fries ordered!");
+            break;</span>
+        <span id="casedefault">default:
+            printf("Invalid choice");
+            </span>       
+    }
+
+    return 0;
+}
+</code>
+  </div>
+
+  <script>
+    const output = document.getElementById("foodOutput");
+    const casePizza = document.getElementById("casePizza");
+    const caseBurger = document.getElementById("caseBurger");
+    const caseFries = document.getElementById("caseFries");
+    const casedefault = document.getElementById("casedefault");
+
+    function chooseItem(choice) {
+      // Reset highlights
+      [casePizza, caseBurger, caseFries, casedefault].forEach(c => c.classList.remove("highlight"));
+
+      switch (choice) {
+        case 'p':
+          output.textContent = "🍕";
+          casePizza.classList.add("highlight");
+          break;
+        case 'b':
+          output.textContent = "🍔";
+          caseBurger.classList.add("highlight");
+          break;
+        case 'f':
+          output.textContent = "🍟";
+          caseFries.classList.add("highlight");
+          break;
+        default:
+          output.textContent = "❓";
+          casedefault.classList.add("highlight");
+      }
+    }
+  </script>
+
+</body>
+</html>

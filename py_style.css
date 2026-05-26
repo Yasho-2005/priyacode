@@ -1,0 +1,452 @@
+/* =========================
+           PYTHON UI LAYER ONLY
+        ========================== */
+
+.python-page-wrapper {
+  width: 100%;
+}
+
+.python-breadcrumb {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.python-breadcrumb span {
+  color: #00ffe7;
+}
+
+.py-wrap {
+  /* background: rgba(7, 13, 28, 0.88); */
+  border: 1px solid rgba(0, 255, 231, 0.18);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 255, 231, 0.08);
+  /* backdrop-filter: blur(8px); */
+}
+
+/* =========================
+           TOP BAR
+        ========================== */
+
+.py-topbar {
+  background: rgba(0, 0, 0, 0.35);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.py-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.py-topbar-title {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 12px;
+}
+
+/* =========================
+           BODY
+        ========================== */
+
+.py-body {
+  padding: 35px;
+}
+
+.page-heading {
+  font-size: 34px;
+  margin-bottom: 20px;
+  color: #ffffff;
+}
+
+.page-heading span {
+  color: #00ffe7;
+}
+
+.py-banner {
+  background: rgba(0, 255, 231, 0.06);
+  border-left: 4px solid #00ffe7;
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.82);
+  line-height: 30px;
+}
+
+.py-section {
+  margin-bottom: 40px;
+}
+
+.py-label {
+  color: #00ffe7;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+/* =========================
+           WHAT WHY
+        ========================== */
+
+.py-what div {
+  margin-bottom: 14px;
+  line-height: 28px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.py-what .k {
+  color: #ff6bcb;
+  font-weight: bold;
+}
+
+.py-what .s {
+  color: #00ffe7;
+}
+
+/* =========================
+           TABLE
+        ========================== */
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.py-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 14px;
+}
+
+.py-table th {
+  background: rgba(0, 255, 231, 0.12);
+  color: #00ffe7;
+  padding: 14px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.py-table td {
+  padding: 14px;
+  color: rgba(255, 255, 255, 0.82);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.py-table tr:hover {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.py-table .op {
+  color: #ff6bcb;
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.py-table .ex {
+  color: #ffd166;
+}
+
+.py-table .res {
+  color: #00ff9d;
+}
+
+/* =========================
+           CODE BLOCK
+        ========================== */
+
+.repl {
+  background: rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 22px;
+}
+
+.repl-bar {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.ex-label {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 12px;
+}
+
+.badge {
+  background: rgba(0, 255, 231, 0.1);
+  border: 1px solid rgba(0, 255, 231, 0.25);
+  color: #00ffe7;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+}
+
+.repl-code {
+  padding: 20px;
+  font-family: Consolas, monospace;
+  line-height: 34px;
+  font-size: 15px;
+}
+
+.code-line {
+  display: flex;
+  gap: 12px;
+}
+
+.ln {
+  width: 24px;
+  color: rgba(255, 255, 255, 0.28);
+  user-select: none;
+}
+
+.kw {
+  color: #ff6bcb;
+}
+
+.var {
+  color: #7fdfff;
+}
+
+.num {
+  color: #ffd166;
+}
+
+.fn {
+  color: #c792ea;
+}
+
+.op2 {
+  color: #ff6bcb;
+}
+
+.cmt {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.output-bar {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.arrow {
+  color: #00ff9d;
+}
+
+.val {
+  color: #00ff9d;
+}
+
+/* =========================
+           THINK BOX
+        ========================== */
+
+.think-box {
+  background: rgba(255, 209, 102, 0.06);
+  border-left: 4px solid #ffd166;
+  border-radius: 10px;
+  padding: 18px;
+  margin-top: 18px;
+}
+
+.think-label {
+  color: #ffd166;
+  margin-bottom: 8px;
+  font-weight: bold;
+}
+
+.think-box p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 28px;
+}
+
+.think-box code {
+  background: rgba(0, 0, 0, 0.25);
+  padding: 3px 8px;
+  border-radius: 6px;
+  color: #00ffe7;
+}
+
+/* =========================
+           TASK CARDS
+        ========================== */
+
+.tasks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.task-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 255, 231, 0.16);
+  border-radius: 14px;
+  padding: 20px;
+  transition: 0.25s;
+}
+
+.task-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 255, 231, 0.12);
+}
+
+.task-num {
+  color: #00ffe7;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.task-card h4 {
+  color: white;
+  margin-bottom: 14px;
+}
+
+.task-card ul {
+  padding-left: 18px;
+  line-height: 30px;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.task-card span {
+  color: #00ffe7;
+}
+
+/* =========================
+           QUIZ
+        ========================== */
+/* 
+        .quiz-wrap {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(0,255,231,0.15);
+            border-radius: 14px;
+            padding: 26px;
+        }
+
+        .quiz-title {
+            color: #00ffe7;
+            margin-bottom: 22px;
+            letter-spacing: 1px;
+        }
+
+        .quiz-q {
+            margin-bottom: 24px;
+        }
+
+        .quiz-q label {
+            display: block;
+            margin-bottom: 10px;
+            color: rgba(255,255,255,0.82);
+            line-height: 26px;
+        }
+
+        .hint {
+            display: block;
+            color: rgba(255,255,255,0.45);
+            font-size: 12px;
+            margin-top: 4px;
+        }
+
+        .quiz-input-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .quiz-prompt {
+            color: #00ff9d;
+        }
+
+        .quiz-q input {
+            background: rgba(0,0,0,0.35);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 8px;
+            padding: 10px 14px;
+            color: white;
+            width: 180px;
+            outline: none;
+        }
+
+        .quiz-q input.correct {
+            border: 2px solid #00ff9d;
+            color: #00ff9d;
+        }
+
+        .quiz-q input.wrong {
+            border: 2px solid #ff5e7e;
+            color: #ff5e7e;
+        }
+
+        .submit-btn {
+            background: rgba(0,255,231,0.12);
+            border: 1px solid rgba(0,255,231,0.28);
+            color: #00ffe7;
+            padding: 12px 22px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+
+        .submit-btn:hover {
+            background: rgba(0,255,231,0.2);
+        }
+
+        .quiz-feedback {
+            margin-top: 16px;
+            padding: 12px 16px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .quiz-feedback.ok {
+            display: block;
+            background: rgba(0,255,157,0.08);
+            border: 1px solid rgba(0,255,157,0.25);
+            color: #00ff9d;
+        }
+
+        .quiz-feedback.err {
+            display: block;
+            background: rgba(255,94,126,0.08);
+            border: 1px solid rgba(255,94,126,0.25);
+            color: #ff5e7e;
+        } */
+
+/* =========================
+           NAVIGATION
+        ========================== */
+
+.nav-row {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #00ffe7;
+  border: 1px solid rgba(0, 255, 231, 0.2);
+  padding: 12px 18px;
+  border-radius: 10px;
+  transition: 0.25s;
+}
+
+.nav-link:hover {
+  background: rgba(0, 255, 231, 0.08);
+}

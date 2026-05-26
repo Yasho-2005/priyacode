@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pointer Visual</title>
+  <style>
+    body {
+      background: #1a1a1a;
+      color: white;
+      font-family: sans-serif;
+      padding: 30px;
+      text-align: center;
+    }
+    .box {
+      border: 2px solid #4caf50;
+      padding: 10px;
+      width: 150px;
+      margin: 20px auto;
+      border-radius: 10px;
+      background: #2a2a2a;
+      position: relative;
+    }
+    .label {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .value {
+      font-size: 22px;
+      margin: 10px 0;
+    }
+    .arrow {
+      width: 2px;
+      height: 40px;
+      background: yellow;
+      margin: 10px auto;
+    }
+    .arrow-head {
+      width: 0;
+      height: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+      border-top: 15px solid yellow;
+      margin: auto;
+    }
+    .highlight {
+      background-color: yellow;
+      color: black;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔁 Pointers in C - Box and Label</h1>
+
+  <div class="box" id="boxNum">
+    <div class="label">Variable <code>num</code></div>
+    <div class="value" id="numValue">10</div>
+    <div class="value"><small>Address: <span id="addrNum">0xABC</span></small></div>
+  </div>
+
+  <div class="arrow"></div>
+  <div class="arrow-head"></div>
+
+  <div class="box" id="boxPtr">
+    <div class="label">Pointer <code>ptr</code></div>
+    <div class="value"><small>Holds: Address of <code>num</code></small></div>
+    <div class="value"><span id="ptrValue">0xABC</span></div>
+    <div class="value"><small>*ptr: <span id="dereferenced">10</span></small></div>
+  </div>
+
+  <button onclick="highlightSteps()">▶ Highlight Code Steps</button>
+
+  <div class="code-box" style="background:#2c2c2c;padding:20px;margin-top:30px;border-radius:10px;text-align:left;max-width:600px;margin:auto;white-space:pre-wrap;">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    <span id="step1">int num = 10;</span>
+    <span id="step2">int *ptr = &num;</span>
+
+    <span id="step3">printf("Value of num: %d", num);</span>
+    <span id="step4">printf("Address of num: %p", &num);</span>
+    <span id="step5">printf("Value of ptr: %p", ptr);</span>
+    <span id="step6">printf("Value pointed by ptr: %d", *ptr);</span>
+
+    return 0;
+}
+</code>
+  </div>
+
+  <script>
+    const highlights = ["step1", "step2", "step3", "step4", "step5", "step6"];
+    let step = 0;
+
+    function highlightSteps() {
+      if (step < highlights.length) {
+        document.getElementById(highlights[step]).classList.add("highlight");
+        step++;
+      }
+    }
+  </script>
+
+</body>
+</html>

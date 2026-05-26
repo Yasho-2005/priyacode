@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Check Age If-Else Demo</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .age-box {
+      text-align: center;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 18px;
+      width: 100px;
+      border-radius: 8px;
+      border: none;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #00b894;
+      color: white;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .code-box {
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      font-size: 16px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .code-box code {
+      color: #00ffcc;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      font-weight: bold;
+      border-radius: 5px;
+      padding: 2px 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Check Age using if-else</h1>
+
+  <div class="container">
+    <!-- Age input and result -->
+    <div class="age-box">
+      <input type="number" id="age" placeholder="Enter age">
+      <button onclick="checkAge()">Check</button>
+      <div class="result" id="result"></div>
+    </div>
+
+    <!-- Code box -->
+    <div class="code-box">
+      <code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 18;
+
+    <span id="ifPart">if (age &gt;= 18) {
+        printf("You are an adult.");
+    }</span>
+    <span id="elsePart">else {
+        printf("You are underage.");
+    }</span>
+
+    return 0;
+}
+      </code>
+    </div>
+  </div>
+
+  <script>
+    const result = document.getElementById("result");
+    const ifPart = document.getElementById("ifPart");
+    const elsePart = document.getElementById("elsePart");
+
+    function checkAge() {
+      const age = parseInt(document.getElementById("age").value);
+      if (age >= 18) {
+        result.textContent = "You are an adult.";
+        ifPart.classList.add("highlight");
+        elsePart.classList.remove("highlight");
+      } else {
+        result.textContent = "You are underage.";
+        elsePart.classList.add("highlight");
+        ifPart.classList.remove("highlight");
+      }
+    }
+  </script>
+
+</body>
+</html>

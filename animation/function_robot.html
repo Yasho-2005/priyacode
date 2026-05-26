@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robot Functions - C Example</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .buttons button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 18px;
+      border-radius: 8px;
+      margin: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .buttons button:hover {
+      background-color: #555;
+    }
+
+    .robot {
+      font-size: 80px;
+      margin: 20px 0;
+      transition: transform 0.5s;
+    }
+
+    .code-box {
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      white-space: pre-wrap;
+      text-align: left;
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🤖 Robot Functions using <code>function calls</code></h1>
+
+  <div class="robot" id="robot">🤖</div>
+
+  <div class="buttons">
+    <button onclick="robotAction('jump')">Jump</button>
+    <button onclick="robotAction('slide')">Slide</button>
+    <button onclick="robotAction('left')">Go Left</button>
+    <button onclick="robotAction('right')">Go Right</button>
+  </div>
+
+  <div class="code-box">
+<code>
+#include &lt;stdio.h&gt;
+
+void jump() {
+  <span id="jump">printf("Robot jumps!\n");</span>
+}
+
+void slide() {
+  <span id="slide">printf("Robot slides!\n");</span>
+}
+
+void left() {
+  <span id="left">printf("Robot moves left!\n");</span>
+}
+
+void right() {
+  <span id="right">printf("Robot moves right!\n");</span>
+}
+
+int main() {
+  jump();
+  slide();
+  left();
+  right();
+  return 0;
+}
+</code>
+  </div>
+
+  <script>
+    const robot = document.getElementById("robot");
+
+    function robotAction(action) {
+      const actions = ['jump', 'slide', 'left', 'right'];
+      actions.forEach(a => document.getElementById(a).classList.remove("highlight"));
+
+      document.getElementById(action).classList.add("highlight");
+
+      switch (action) {
+        case 'jump':
+          robot.style.transform = "translateY(-60px)";
+          setTimeout(() => robot.style.transform = "translateY(0)", 400);
+          break;
+        case 'slide':
+          robot.style.transform = "translateX(40px)";
+          setTimeout(() => robot.style.transform = "translateX(0)", 400);
+          break;
+        case 'left':
+          robot.style.transform = "translateX(-60px)";
+          setTimeout(() => robot.style.transform = "translateX(0)", 400);
+          break;
+        case 'right':
+          robot.style.transform = "translateX(60px)";
+          setTimeout(() => robot.style.transform = "translateX(0)", 400);
+          break;
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>While Loop - Veggie Cart</title>
+  <style>
+    body {
+      background: #1a1a1a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .veggie-buttons button,
+    .reset-button {
+      font-size: 24px;
+      padding: 10px 15px;
+      margin: 8px;
+      border: none;
+      border-radius: 8px;
+      background-color: #444;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .veggie-buttons button:hover,
+    .reset-button:hover {
+      background-color: #666;
+    }
+
+    .cart {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      border: 3px dashed #00ff99;
+      min-height: 100px;
+      max-width: 300px;
+      margin: 20px auto;
+      border-radius: 12px;
+      padding: 10px;
+    }
+
+    .cart span {
+      font-size: 30px;
+      margin: 5px;
+    }
+
+    .code-box {
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      white-space: pre-wrap;
+      text-align: left;
+      margin: 20px auto;
+      max-width: 400px;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    .message {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #00ff99;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🥦 Add Veggies to the Cart (while loop)</h1>
+
+  <div class="veggie-buttons">
+    <button onclick="addVeggie('🥕')">🥕</button>
+    <button onclick="addVeggie('🥦')">🥦</button>
+    <button onclick="addVeggie('🍅')">🍅</button>
+    <button onclick="addVeggie('🧅')">🧅</button>
+    <button onclick="addVeggie('🫑')">🫑</button>
+  </div>
+
+  <button class="reset-button" onclick="resetCart()">🔁 Reset Cart</button>
+
+  <div class="cart" id="cartBox"></div>
+  <div class="message" id="messageBox">Cart is empty</div>
+
+  <div class="code-box">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int cart = 0;
+
+    <span id="whileCode">while (cart &lt; 5) {
+        printf("Veggie added!\\n");
+        cart++;
+    }</span>
+
+    return 0;
+}
+</code>
+  </div>
+
+  <script>
+    let cartCount = 0;
+    const cartBox = document.getElementById("cartBox");
+    const messageBox = document.getElementById("messageBox");
+    const whileCode = document.getElementById("whileCode");
+
+    function addVeggie(veggie) {
+      if (cartCount < 5) {
+        whileCode.classList.add("highlight");
+        cartCount++;
+        cartBox.innerHTML += `<span>${veggie}</span>`;
+        messageBox.textContent = `Veggie added (${cartCount}/5)`;
+        if (cartCount === 5) {
+          setTimeout(() => {
+            messageBox.textContent = "✅ Cart is full!";
+            whileCode.classList.remove("highlight");
+          }, 300);
+        }
+      } else {
+        messageBox.textContent = "🛑 Cart already full!";
+        whileCode.classList.remove("highlight");
+      }
+    }
+
+    function resetCart() {
+      cartCount = 0;
+      cartBox.innerHTML = "";
+      messageBox.textContent = "Cart is empty";
+      whileCode.classList.remove("highlight");
+    }
+  </script>
+
+</body>
+</html>

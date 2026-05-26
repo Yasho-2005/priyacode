@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Traffic Light - if else if else</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+    }
+
+    .traffic-light {
+      background-color: #333;
+      width: 100px;
+      padding: 20px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    .light {
+      width: 50px;
+      height: 50px;
+      background-color: #555;
+      border-radius: 50%;
+      box-shadow: 0 0 5px #000;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .on-red {
+      background-color: red;
+      box-shadow: 0 0 15px red;
+    }
+
+    .on-yellow {
+      background-color: yellow;
+      box-shadow: 0 0 15px yellow;
+    }
+
+    .on-green {
+      background-color: limegreen;
+      box-shadow: 0 0 15px limegreen;
+    }
+
+    .buttons {
+      margin: 20px 0;
+    }
+
+    .buttons button {
+      padding: 10px 15px;
+      margin: 0 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .code-box {
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 16px;
+      width: 400px;
+      white-space: pre-wrap;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Traffic Light using if...else if</h1>
+
+  <!-- Traffic Light -->
+  <div class="traffic-light">
+    <div id="red" class="light"></div>
+    <div id="yellow" class="light"></div>
+    <div id="green" class="light"></div>
+  </div>
+
+  <!-- Buttons -->
+  <div class="buttons">
+    <button onclick="selectLight('green')">Green</button>
+    <button onclick="selectLight('yellow')">Yellow</button>
+    <button onclick="selectLight('red')">Red</button>
+  </div>
+
+  <!-- Code display -->
+  <div class="code-box">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    char color[] = "green";
+
+    <span id="ifPart">if (strcmp(color, "green") == 0) {
+        printf("Go");
+    }</span>
+    <span id="elseIfPart">else if (strcmp(color, "yellow") == 0) {
+        printf("Slow Down");
+    }</span>
+    <span id="elsePart">else {
+        printf("Stop");
+    }</span>
+
+    return 0;
+}
+</code>
+  </div>
+
+  <script>
+    const lights = {
+      red: document.getElementById("red"),
+      yellow: document.getElementById("yellow"),
+      green: document.getElementById("green")
+    };
+
+    const ifPart = document.getElementById("ifPart");
+    const elseIfPart = document.getElementById("elseIfPart");
+    const elsePart = document.getElementById("elsePart");
+
+    function selectLight(color) {
+      // Turn off all lights
+      for (let key in lights) {
+        lights[key].classList.remove("on-red", "on-yellow", "on-green");
+      }
+
+      // Turn on selected light
+      lights[color].classList.add(`on-${color}`);
+
+      // Remove all highlights
+      ifPart.classList.remove("highlight");
+      elseIfPart.classList.remove("highlight");
+      elsePart.classList.remove("highlight");
+
+      // Highlight C code
+      if (color === "green") {
+        ifPart.classList.add("highlight");
+      } else if (color === "yellow") {
+        elseIfPart.classList.add("highlight");
+      } else {
+        elsePart.classList.add("highlight");
+      }
+    }
+  </script>
+
+</body>
+</html>

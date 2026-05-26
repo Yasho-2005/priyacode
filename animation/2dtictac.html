@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tic Tac Toe with Winner</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      background: #1e1e1e;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    #status {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #00e676;
+    }
+
+    .board {
+      display: grid;
+      grid-template-columns: repeat(3, 80px);
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .cell {
+      width: 80px;
+      height: 80px;
+      background: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 36px;
+      border: 1px solid cyan;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .cell:hover {
+      background: #444;
+    }
+
+    .cell.filled {
+      pointer-events: none;
+      background: #555;
+    }
+
+    .array-view {
+      margin-top: 30px;
+      font-size: 16px;
+      text-align: left;
+      max-width: 320px;
+      margin-left: auto;
+      margin-right: auto;
+      background: #292929;
+      padding: 15px;
+      border-radius: 10px;
+      white-space: pre-wrap;
+    }
+
+    .reset-btn {
+      margin-top: 15px;
+      padding: 10px 18px;
+      border: none;
+      background: crimson;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎮 Tic Tac Toe (2D Array)</h1>
+<div id="status">Player X's Turn</div>
+
+<div class="board" id="board"></div>
+
+<div class="array-view" id="arrayView"></div>
+
+<button class="reset-btn" onclick="resetGame()">Reset Game</button>
+
+<script>
+  let boardArray = [
+    ["", "", ""],
+    ["", "", ""],
+    ["", "", ""]
+  ];
+
+  let currentPlayer = "X";
+  let gameOver = false;
+  const boardElement = document.getElementById("board");
+  const arrayView = document.getElementById("arrayView");
+  const status = document.getElementById("status");
+
+function renderBoard() {
+  boardElement.innerHTML = "";
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 3; col++) {
+      const cell = document.createElement("div");
+      cell.classList.add("cell");
+
+      // Show index if empty, else show X or O
+      cell.textContent = boardArray[row][col] ? boardArray[row][col] : `${row},${col}`;
+
+      if (boardArray[row][col]) {
+        cell.classList.add("filled");
+      }
+
+      if (!gameOver && boardArray[row][col] === "") {
+        cell.addEventListener("click", () => makeMove(row, col));
+      }
+
+      boardElement.appendChild(cell);
+    }
+  }
+  updateArrayView();
+}
+
+
+  function makeMove(row, col) {
+    if (boardArray[row][col] === "") {
+      boardArray[row][col] = currentPlayer;
+      if (checkWinner()) {
+        status.textContent = `🎉 Player ${currentPlayer} Wins!`;
+        gameOver = true;
+      } else if (isBoardFull()) {
+        status.textContent = "It's a Draw!";
+        gameOver = true;
+      } else {
+        currentPlayer = currentPlayer === "X" ? "O" : "X";
+        status.textContent = `Player ${currentPlayer}'s Turn`;
+      }
+      renderBoard();
+    }
+  }
+
+  function checkWinner() {
+    // Rows & Columns
+    for (let i = 0; i < 3; i++) {
+      if (
+        boardArray[i][0] && 
+        boardArray[i][0] === boardArray[i][1] &&
+        boardArray[i][1] === boardArray[i][2]
+      ) return true;
+      if (
+        boardArray[0][i] && 
+        boardArray[0][i] === boardArray[1][i] &&
+        boardArray[1][i] === boardArray[2][i]
+      ) return true;
+    }
+
+    // Diagonals
+    if (
+      boardArray[0][0] && 
+      boardArray[0][0] === boardArray[1][1] &&
+      boardArray[1][1] === boardArray[2][2]
+    ) return true;
+
+    if (
+      boardArray[0][2] && 
+      boardArray[0][2] === boardArray[1][1] &&
+      boardArray[1][1] === boardArray[2][0]
+    ) return true;
+
+    return false;
+  }
+
+  function isBoardFull() {
+    for (let row of boardArray) {
+      if (row.includes("")) return false;
+    }
+    return true;
+  }
+
+  function updateArrayView() {
+    arrayView.textContent = "2D Array:\n[\n";
+    for (let row = 0; row < 3; row++) {
+      arrayView.textContent += "  [" + boardArray[row].map(cell => cell || " ").join(", ") + "]";
+      arrayView.textContent += row < 2 ? ",\n" : "\n";
+    }
+    arrayView.textContent += "]";
+  }
+
+  function resetGame() {
+    boardArray = [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", ""]
+    ];
+    currentPlayer = "X";
+    gameOver = false;
+    status.textContent = `Player ${currentPlayer}'s Turn`;
+    renderBoard();
+  }
+
+  renderBoard();
+</script>
+
+</body>
+</html>

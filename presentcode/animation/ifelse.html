@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>If-Else Bulb Demo</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: white;
+      font-family: Arial, sans-serif;
+      padding: 40px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .bulb-box {
+      text-align: center;
+    }
+
+    #bulb {
+      width: 150px;
+      margin-bottom: 20px;
+      transition: 0.3s;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .on-btn {
+      background-color: green;
+      color: white;
+    }
+
+    .off-btn {
+      background-color: red;
+      color: white;
+    }
+
+    .code-box {
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+      width: 400px;
+      font-size: 16px;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+
+    .code-box code {
+      color: #00ffcc;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      font-weight: bold;
+      border-radius: 5px;
+      padding: 2px 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Light Switch using if-else</h1>
+
+  <div class="container">
+    <!-- Left side: Bulb interaction -->
+    <div class="bulb-box">
+      <img id="bulb" src="https://www.w3schools.com/js/pic_bulboff.gif" alt="Bulb">
+      <div>
+        <button class="on-btn" onclick="turnOn()">ON</button>
+        <button class="off-btn" onclick="turnOff()">OFF</button>
+      </div>
+    </div>
+
+    <!-- Right side: C Code -->
+    <div class="code-box">
+      <code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int switchState = 1; // 1 = ON, 0 = OFF
+
+    <span id="ifPart">if (switchState == 1) {
+        printf("Light is ON");
+    }</span>
+    <span id="elsePart">else {
+        printf("Light is OFF");
+    }</span>
+
+    return 0;
+}
+      </code>
+    </div>
+  </div>
+
+  <script>
+    const bulb = document.getElementById("bulb");
+    const ifPart = document.getElementById("ifPart");
+    const elsePart = document.getElementById("elsePart");
+
+    function turnOn() {
+      bulb.src = "https://www.w3schools.com/js/pic_bulbon.gif";
+      ifPart.classList.add("highlight");
+      elsePart.classList.remove("highlight");
+    }
+
+    function turnOff() {
+      bulb.src = "https://www.w3schools.com/js/pic_bulboff.gif";
+      elsePart.classList.add("highlight");
+      ifPart.classList.remove("highlight");
+    }
+  </script>
+
+</body>
+</html>

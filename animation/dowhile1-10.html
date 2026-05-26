@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>do-while Loop - 1 to 10</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    button {
+      background-color: #2d2d2d;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 18px;
+      border-radius: 8px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .output {
+      font-size: 40px;
+      margin: 20px auto;
+      height: 60px;
+    }
+
+    .code-box {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+      margin: 30px auto;
+      max-width: 500px;
+      font-size: 16px;
+      white-space: pre-wrap;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🔢 Printing 1 to 10 using do-while</h1>
+  <button onclick="startCounting()">Start Counting</button>
+
+  <div class="output" id="exerciseOutput">📥</div>
+
+  <div class="code-box">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int i = 1;
+    <span id="doPart">do {
+        printf("%d\\n", i);
+        i++;</span>
+    <span id="whilePart">} while(i <= 10);</span>
+    return 0;
+}
+</code>
+  </div>
+
+  <script>
+    const output = document.getElementById("exerciseOutput");
+    const doPart = document.getElementById("doPart");
+    const whilePart = document.getElementById("whilePart");
+
+    function sleep(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    async function startCounting() {
+      let i = 1;
+      output.textContent = `🔢 ${i}`;
+      doPart.classList.add("highlight");
+      whilePart.classList.remove("highlight");
+
+      do {
+        output.textContent = `🔢 ${i}`;
+        await sleep(500);
+
+        i++;
+        doPart.classList.remove("highlight");
+        whilePart.classList.add("highlight");
+        await sleep(300);
+
+        if (i <= 10) {
+          whilePart.classList.remove("highlight");
+          doPart.classList.add("highlight");
+        }
+
+      } while (i <= 10);
+
+      output.textContent = "✅ Done!";
+      whilePart.classList.add("highlight");
+      doPart.classList.remove("highlight");
+    }
+  </script>
+
+</body>
+</html>
+ 

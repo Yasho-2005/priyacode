@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Switch Without Break - Fall Through Demo</title>
+  <style>
+    body {
+      font-family: 'Courier New', monospace;
+      background: #0d0d0d;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 26px;
+      color: #00ffcc;
+      margin-bottom: 20px;
+    }
+
+    .input-section {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 8px 12px;
+      font-size: 16px;
+      width: 60px;
+      text-align: center;
+      border-radius: 5px;
+      border: none;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 8px 16px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 2px solid #00ffcc;
+      background: transparent;
+      color: #00ffcc;
+      cursor: pointer;
+    }
+
+    pre {
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 12px;
+      width: fit-content;
+      margin-top: 20px;
+      text-align: left;
+      display: inline-block;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.2);
+    }
+
+    .line {
+      padding: 3px 0;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .output {
+      margin-top: 20px;
+      color: #00ff99;
+      font-size: 18px;
+      font-weight: bold;
+      white-space: pre-line;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>⚠️ Switch Without Break - Fall Through</h2>
+
+  <div class="input-section">
+    <label for="dayInput">Enter (1–7): </label>
+    <input type="number" id="dayInput" min="1" max="7">
+    <button onclick="runFallThrough()">Start</button>
+  </div>
+
+  <div class="output" id="output"></div>
+
+  <pre id="codeBlock">
+<span class="line">switch(day) {</span>
+<span class="line" id="case1">    case 1: printf("Monday");</span>
+<span class="line" id="case2">    case 2: printf("Tuesday");</span>
+<span class="line" id="case3">    case 3: printf("Wednesday");</span>
+<span class="line" id="case4">    case 4: printf("Thursday");</span>
+<span class="line" id="case5">    case 5: printf("Friday");</span>
+<span class="line" id="case6">    case 6: printf("Saturday");</span>
+<span class="line" id="case7">    case 7: printf("Sunday");</span>
+<span class="line" id="default">    default: printf("Invalid input!");</span>
+<span class="line">}</span>
+  </pre>
+
+  <script>
+    function runFallThrough() {
+      const day = parseInt(document.getElementById("dayInput").value);
+      const output = document.getElementById("output");
+      output.textContent = "";
+
+      // Remove previous highlights
+      for (let i = 1; i <= 7; i++) {
+        document.getElementById("case" + i).classList.remove("highlight");
+      }
+      document.getElementById("default").classList.remove("highlight");
+
+      if (isNaN(day)) {
+        output.textContent = "❗ Please enter a valid number.";
+        return;
+      }
+
+      if (day < 1 || day > 7) {
+        document.getElementById("default").classList.add("highlight");
+        output.textContent = "❌ Invalid input!";
+        return;
+      }
+
+      const messages = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+      let current = day;
+      let collectedOutput = "";
+      let interval = setInterval(() => {
+        if (current <= 7) {
+          const line = document.getElementById("case" + current);
+          line.classList.add("highlight");
+
+          collectedOutput += "✅ " + messages[current - 1] + "\n";
+          output.textContent = collectedOutput;
+
+          if (current > day) {
+            document.getElementById("case" + (current - 1)).classList.remove("highlight");
+          }
+
+          current++;
+        } else {
+          if (day <= 7) {
+            document.getElementById("case" + (current - 1)).classList.remove("highlight");
+          }
+          clearInterval(interval);
+        }
+      }, 700);
+    }
+  </script>
+</body>
+</html>

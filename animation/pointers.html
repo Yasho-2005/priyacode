@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pointers in C - Basic Example</title>
+  <style>
+    body {
+      background: #1e1e1e;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    .box {
+      background: #2c2c2c;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 10px auto;
+      width: 300px;
+      font-size: 18px;
+      border: 2px solid transparent;
+    }
+
+    .highlight {
+      border-color: yellow;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 15px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 6px;
+      background-color: #444;
+      color: white;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #666;
+    }
+
+    .code-box {
+      background-color: #333;
+      color: #0f0;
+      font-family: monospace;
+      text-align: left;
+      margin: 20px auto;
+      padding: 15px;
+      width: 80%;
+      border-radius: 10px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Understanding Pointers in C</h1>
+
+  <div class="box" id="variableBox">Variable <strong>a = 10</strong></div>
+  <div class="box" id="pointerBox">Pointer <strong>ptr</strong> = ?</div>
+  <div class="box" id="valueBox">*ptr = ?</div>
+
+  <button onclick="assignAddress()">Assign Address</button>
+  <button onclick="dereferencePointer()">Dereference Pointer</button>
+
+  <div class="code-box" id="code">
+#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10;
+    int *ptr;
+
+    ptr = &a;
+    printf("Value of a = %d\\n", a);
+    printf("Address of a = %p\\n", &a);
+    printf("Value at ptr = %d", *ptr);
+
+    return 0;
+}
+  </div>
+
+  <script>
+    let address = "&a = 0x61ff08"; // Example mock address
+    let variableValue = 10;
+
+    function assignAddress() {
+      document.getElementById("pointerBox").innerHTML = `Pointer <strong>ptr</strong> = ${address}`;
+      document.getElementById("pointerBox").classList.add("highlight");
+      document.getElementById("valueBox").innerHTML = "*ptr = ?";
+      document.getElementById("valueBox").classList.remove("highlight");
+    }
+
+    function dereferencePointer() {
+      document.getElementById("valueBox").innerHTML = `*ptr = ${variableValue}`;
+      document.getElementById("valueBox").classList.add("highlight");
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>1D Array Memory Viewer</title>
+  <style>
+    body {
+      background-color: #0f0f0f;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .input-area {
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 100px;
+      border-radius: 6px;
+      border: none;
+      margin-right: 10px;
+    }
+
+    button {
+      padding: 10px 16px;
+      font-size: 16px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+
+    .array-container {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+
+    .cell {
+      background-color: #222;
+      padding: 10px;
+      border-radius: 8px;
+      width: 100px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .cell.highlight {
+      background-color: yellow;
+      color: black;
+    }
+
+    .address {
+      font-size: 12px;
+      color: #888;
+    }
+
+    .value {
+      font-size: 20px;
+      margin-top: 8px;
+    }
+
+    .code-box {
+      background-color: #1c1c1c;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      margin: 40px auto 0;
+      white-space: pre-wrap;
+      text-align: left;
+    }
+
+    .highlight-code {
+      background-color: yellow;
+      color: black;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📦 1D Array – Memory Location Visualizer</h1>
+
+  <div class="input-area">
+    <input type="text" id="dataInput" placeholder="Enter value">
+    <button onclick="addToArray()">Add</button>
+    <button onclick="resetArray()">Reset</button>
+  </div>
+
+  <div class="array-container" id="arrayContainer">
+    <!-- Cells will appear here -->
+  </div>
+
+  <div class="code-box">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    char arr[5][10]; <span id="declareLine">// Declaration</span>
+    int i;
+
+    <span id="loopLine">for(i = 0; i &lt; 5; i++) {</span>
+        <span id="inputLine">scanf("%s", arr[i]);</span>
+    }
+
+    return 0;
+}
+</code>
+  </div>
+
+  <script>
+    const arrayContainer = document.getElementById("arrayContainer");
+    const dataInput = document.getElementById("dataInput");
+
+    const declareLine = document.getElementById("declareLine");
+    const loopLine = document.getElementById("loopLine");
+    const inputLine = document.getElementById("inputLine");
+
+    const memoryBase = 1000;
+    let currentIndex = 0;
+    let cells = [];
+
+    function generateAddress(index) {
+      return `0x${(memoryBase + index * 10).toString(16).toUpperCase()}`;
+    }
+
+    function addToArray() {
+      const value = dataInput.value.trim();
+      if (!value) {
+        alert("Enter a value!");
+        return;
+      }
+
+      if (currentIndex >= 5) {
+        alert("Array is full!");
+        return;
+      }
+
+      const cell = document.createElement("div");
+      cell.classList.add("cell", "highlight");
+      cell.innerHTML = `<div class="address">${generateAddress(currentIndex)}</div>
+                        <div class="value">${value}</div>`;
+      arrayContainer.appendChild(cell);
+      cells.push(cell);
+
+      // Highlight code
+      declareLine.classList.add("highlight-code");
+      loopLine.classList.add("highlight-code");
+      inputLine.classList.add("highlight-code");
+
+      // Unhighlight after animation
+      setTimeout(() => {
+        cell.classList.remove("highlight");
+        declareLine.classList.remove("highlight-code");
+        loopLine.classList.remove("highlight-code");
+        inputLine.classList.remove("highlight-code");
+        dataInput.value = "";
+        currentIndex++;
+      }, 800);
+    }
+
+    function resetArray() {
+      currentIndex = 0;
+      arrayContainer.innerHTML = "";
+      cells = [];
+      dataInput.value = "";
+    }
+  </script>
+
+</body>
+</html>

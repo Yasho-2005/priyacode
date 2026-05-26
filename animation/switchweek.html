@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Switch Case - Day of Week</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 30px;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      margin: 10px;
+      border: none;
+    }
+
+    button {
+      background-color: #2d2d2d;
+      color: white;
+      cursor: pointer;
+    }
+
+    .output {
+      font-size: 30px;
+      margin-top: 20px;
+    }
+
+    .code-box {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: left;
+      margin: 30px auto;
+      max-width: 600px;
+      font-size: 16px;
+      white-space: pre-wrap;
+    }
+
+    .highlight {
+      background-color: yellow;
+      color: black;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📅 Day of the Week (Switch-Case)</h1>
+
+  <input type="number" id="dayInput" min="1" max="7" placeholder="Enter number (1-7)" />
+  <button onclick="checkDay()">Check Day</button>
+
+  <div class="output" id="dayOutput">🕒 Waiting for input...</div>
+
+  <div class="code-box">
+<code>
+#include &lt;stdio.h&gt;
+
+int main() {
+    int day;
+    printf("Enter a number (1-7): ");
+    scanf("%d", &day);
+    switch(day) {
+        <span id="case1">case 1: printf("Monday"); break;</span>
+        <span id="case2">case 2: printf("Tuesday"); break;</span>
+        <span id="case3">case 3: printf("Wednesday"); break;</span>
+        <span id="case4">case 4: printf("Thursday"); break;</span>
+        <span id="case5">case 5: printf("Friday"); break;</span>
+        <span id="case6">case 6: printf("Saturday"); break;</span>
+        <span id="case7">case 7: printf("Sunday"); break;</span>
+        <span id="defaultCase">default: printf("Invalid input!");</span>
+    }
+    return 0;
+}
+</code>
+  </div>
+
+  <script>
+    const output = document.getElementById("dayOutput");
+    const cases = {
+      1: document.getElementById("case1"),
+      2: document.getElementById("case2"),
+      3: document.getElementById("case3"),
+      4: document.getElementById("case4"),
+      5: document.getElementById("case5"),
+      6: document.getElementById("case6"),
+      7: document.getElementById("case7"),
+    };
+    const defaultCase = document.getElementById("defaultCase");
+
+    function clearHighlights() {
+      Object.values(cases).forEach(el => el.classList.remove("highlight"));
+      defaultCase.classList.remove("highlight");
+    }
+
+    function checkDay() {
+      clearHighlights();
+      const day = parseInt(document.getElementById("dayInput").value);
+      let message = "";
+
+      switch (day) {
+        case 1:
+          cases[1].classList.add("highlight");
+          message = "Monday";
+          break;
+        case 2:
+          cases[2].classList.add("highlight");
+          message = "Tuesday";
+          break;
+        case 3:
+          cases[3].classList.add("highlight");
+          message = "Wednesday";
+          break;
+        case 4:
+          cases[4].classList.add("highlight");
+          message = "Thursday";
+          break;
+        case 5:
+          cases[5].classList.add("highlight");
+          message = "Friday";
+          break;
+        case 6:
+          cases[6].classList.add("highlight");
+          message = "Saturday";
+          break;
+        case 7:
+          cases[7].classList.add("highlight");
+          message = "Sunday";
+          break;
+        default:
+          defaultCase.classList.add("highlight");
+          message = "Invalid input!";
+      }
+
+      output.textContent = `📆 ${message}`;
+    }
+  </script>
+
+</body>
+</html>
