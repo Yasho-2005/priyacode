@@ -25,12 +25,10 @@
                         <li><a href="py_list.php" style="font-style: italic;">- Overview & Rules</a></li>
                         <li><a href="py_access_list.php">- Access List Items</a></li>
                         <li><a href="py_change_list.php">- Change List Items</a></li>
-                        <li><a href="py_add_list_items.php">- Add List Items</a></li>
-                        <li><a href="py_remove_list_items.php">- Remove List Items</a></li>
-                        <li><a href="py_loop_lists.php">- Loop Lists</a></li>
+                        <li><a href="py_add_list.php">- Add List Items</a></li>
+                        <li><a href="py_remove_list.php">- Remove List Items</a></li>
+                        <li><a href="py_loop_list.php">- Loop Lists</a></li>
                         <li><a href="py_list_comprehension.php">- List Comprehension</a></li>
-                        <li><a href="py_sort_lists.php">- Sort Lists</a></li>
-                        <li><a href="py_copy_join_lists.php">- Copy & Join Lists</a></li>
                     </ul>
                 </li>
                 <li><a href="py_tuples.php">Tuples</a></li>
