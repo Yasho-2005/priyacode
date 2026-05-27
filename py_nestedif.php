@@ -51,10 +51,6 @@
 
             <div class="python-page-wrapper">
 
-                <div class="python-breadcrumb">
-                    python-tutorial / <span>nested_if.py</span>
-                </div>
-
                 <div class="py-wrap">
 
                     <div class="py-topbar">

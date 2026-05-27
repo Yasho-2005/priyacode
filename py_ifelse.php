@@ -20,7 +20,7 @@
     
         /* High-Contrast Visibility Fixes for Dark REPL Terminals */
         .repl-code {
-            background-color: #0d1117 !important;
+            /* background-color: #252d3a !important; */
             color: #ffffff !important;            
             padding: 15px;
             border-radius: 6px;
@@ -39,7 +39,8 @@
 
         /* Interactive Chor-Police Animation UI Engine */
         .game-panel {
-            background: #0d1117;
+            background: #14181f;
+            /* opacity: 5; */
             border: 1px solid #30363d;
             border-radius: 8px;
             padding: 20px;
@@ -171,10 +172,6 @@
         <div class="content">
 
             <div class="python-page-wrapper">
-
-                <div class="python-breadcrumb">
-                    python-tutorial / <span>if_else_statements.py</span>
-                </div>
 
                 <div class="py-wrap">
 

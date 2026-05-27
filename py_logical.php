@@ -38,9 +38,6 @@
 
             <div class="python-page-wrapper">
 
-                <div class="python-breadcrumb">
-                    python-tutorial / <span>logical_operators.py</span>
-                </div>
 
                 <div class="py-wrap">
 

@@ -71,9 +71,6 @@
 
             <div class="python-page-wrapper">
 
-                <div class="python-breadcrumb">
-                    python-tutorial / <span>ternary_operator.py</span>
-                </div>
 
                 <div class="py-wrap">
 
