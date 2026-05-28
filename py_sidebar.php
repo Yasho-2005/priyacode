@@ -14,6 +14,21 @@
             </ul>
         </li>
         <li class="side-items dropdown">
+            <h3 class="">Collections</h3>
+            <ul class="dropdown-menu">
+                <li><a href="py_list.php">Lists</a></li>
+                <li><a href="py_tuple.php">Tuple</a></li>
+                <li><a href="py_set.php">Set</a></li>
+                <!-- <li><a href="py_comparison.php">Comparison</a></li>
+                <li><a href="py_logical.php">Logical</a></li>
+                <li><a href="py_identity.php">Identity</a></li>
+                <li><a href="py_memb.php">Membership</a></li>
+                <li><a href="py_walrus.php">Walrus</a></li>
+                <li><a href="py_ternary.php">Ternary</a></li>
+                <li><a href="sql_game3.php">Special operators</a></li> -->
+            </ul>
+        </li>
+        <li class="side-items dropdown">
             <h3 class="">Control Statements</h3>
             <ul class="dropdown-menu">
                 <li><a href="py_ifelse.php">If Else</a></li>
