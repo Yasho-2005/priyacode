@@ -29,9 +29,9 @@
 
             <div class="python-page-wrapper">
 
-                <div class="python-breadcrumb">
+                <!-- <div class="python-breadcrumb">
                     python-tutorial / <span>arithmetic_operators.py</span>
-                </div>
+                </div> -->
 
                 <div class="py-wrap">
 
@@ -43,7 +43,7 @@
                         <div class="py-dot" style="background:#27c93f"></div>
 
                         <span class="py-topbar-title">
-                            arithmetic_operators.py — Python Tutorial
+                            arithmetic_operators.py
                         </span>
 
                     </div>

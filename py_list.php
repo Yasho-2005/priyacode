@@ -59,6 +59,43 @@
             line-height: 1.4;
         }
 
+        /* Methods Reference Table Stylings */
+        .table-scroll {
+            width: 100%;
+            overflow-x: auto;
+            margin: 20px 0;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+        }
+        .methods-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: monospace;
+            text-align: left;
+            background-color: #161b22;
+        }
+        .methods-table th {
+            background-color: #21262d;
+            color: #58a6ff;
+            padding: 12px;
+            font-size: 0.95rem;
+            border-bottom: 2px solid #30363d;
+        }
+        .methods-table td {
+            padding: 12px;
+            border-bottom: 1px solid #30363d;
+            color: #c9d1d9;
+            font-size: 0.9rem;
+            vertical-align: top;
+        }
+        .methods-table tr:hover {
+            background-color: #1f242c;
+        }
+        .method-name {
+            color: #00ffe7;
+            font-weight: bold;
+        }
+
         /* High-Contrast Visibility Fixes for Dark REPL Terminals */
         .repl-code {
             background-color: #0d1117 !important; 
@@ -76,6 +113,13 @@
             margin-right: 15px;
             user-select: none;
             opacity: 0.8;
+        }
+
+        /* Custom Double Grid Layout for Tasks */
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
         }
     </style>
 </head>
@@ -179,6 +223,68 @@
 
                             </div>
 
+                        </div>
+
+                        <div class="py-section">
+                            <div class="py-label">comprehensive methods checklist matrix</div>
+                            <div class="table-scroll">
+                                <table class="methods-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Method Syntax</th>
+                                            <th>Operational Behavior Description</th>
+                                            <th>Code Action Example Snippet</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="method-name">append(x)</td>
+                                            <td>Adds an item <code class="pink-bold">x</code> directly to the absolute end position of the list array.</td>
+                                            <td><code>nums.append(5)</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="method-name">insert(i, x)</td>
+                                            <td>Inserts an item <code class="pink-bold">x</code> at a targeted target index location <code class="cyan-bold">i</code>.</td>
+                                            <td><code>nums.insert(0, "First")</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="method-name">remove(x)</td>
+                                            <td>Searches and deletes the very first matching value token <code class="pink-bold">x</code> inside the data list.</td>
+                                            <td><code>colors.remove("Red")</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="method-name">pop([i])</td>
+                                            <td>Removes and returns the item sitting at index <code class="cyan-bold">i</code>. Defaults to tail index if omitted.</td>
+                                            <td><code>last_item = items.pop()</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="method-name">clear()</td>
+                                            <td>Completely flushes and strips away all element variables, leaving an empty list.</td>
+                                            <td><code>session_logs.clear()</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="method-name">index(x)</td>
+                                            <td>Returns the zero-based index value address location of the first matching item <code class="pink-bold">x</code>.</td>
+                                            <td><code>pos = cards.index("Ace")</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="method-name">count(x)</td>
+                                            <td>Counts and returns how many times an element <code class="pink-bold">x</code> occurs inside the array sequence.</td>
+                                            <td><code>total = values.count(10)</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="method-name">sort()</td>
+                                            <td>Permanently organizes all internal items in an ascending alphabetical or numerical order.</td>
+                                            <td><code>scores.sort()</code></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="method-name">reverse()</td>
+                                            <td>Flips the positional placement order of all elements inside the list upside down.</td>
+                                            <td><code>queue.reverse()</code></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
 
                         <div class="py-section">
@@ -338,52 +444,61 @@
 
                             <div class="tasks-grid">
 
-                                <div class="task-card">
-
-                                    <div class="task-num">
-                                        TASK 01
-                                    </div>
-
-                                    <h4>Cart Pipeline Audit</h4>
-
+                                <div class="task-card" style="border-top: 3px solid #2ea44f;">
+                                    <div class="task-num" style="color: #2ea44f;">TASK 01 (EASY)</div>
+                                    <h4>My Friends Tracker</h4>
                                     <ul>
-                                        <li>Create list of three unique groceries</li>
-                                        <li>Append a brand new commodity item to the list</li>
+                                        <li>Create a list with 3 names of friends</li>
+                                        <li>Print the entire collection list to the terminal</li>
+                                    </ul>
+                                </div>
+
+                                <div class="task-card" style="border-top: 3px solid #2ea44f;">
+                                    <div class="task-num" style="color: #2ea44f;">TASK 02 (EASY)</div>
+                                    <h4>Fruit Basket Growth</h4>
+                                    <ul>
+                                        <li>Initialize a list containing <code>["Apple", "Banana"]</code></li>
+                                        <li>Use <span>append()</span> to add <code>"Orange"</code> to the basket</li>
+                                    </ul>
+                                </div>
+
+                                <div class="task-card" style="border-top: 3px solid #2ea44f;">
+                                    <div class="task-num" style="color: #2ea44f;">TASK 03 (EASY)</div>
+                                    <h4>Color Swap Trick</h4>
+                                    <ul>
+                                        <li>Store <code>["Red", "Blue", "Green"]</code> in a color variable</li>
+                                        <li>Change <code>"Blue"</code> to <code>"Yellow"</code> using its index address</li>
+                                    </ul>
+                                </div>
+
+                                <div class="task-card">
+                                    <div class="task-num">TASK 04</div>
+                                    <h4>Cart Pipeline Audit</h4>
+                                    <ul>
+                                        <li>Create a list of three unique groceries string objects</li>
+                                        <li>Append a brand new commodity item to the list end</li>
                                         <li>Print entire array matrix to console monitor</li>
                                     </ul>
-
                                 </div>
 
                                 <div class="task-card">
-
-                                    <div class="task-num">
-                                        TASK 02
-                                    </div>
-
+                                    <div class="task-num">TASK 05</div>
                                     <h4>Index Target Override</h4>
-
                                     <ul>
-                                        <li>Initialize numbers sequence array lists</li>
-                                        <li>Target index 2 location explicitly</li>
+                                        <li>Initialize a numbers sequence array dataset</li>
+                                        <li>Target index 2 location explicitly via brackets</li>
                                         <li>Override value item content parameter tokens</li>
                                     </ul>
-
                                 </div>
 
                                 <div class="task-card">
-
-                                    <div class="task-num">
-                                        TASK 03
-                                    </div>
-
+                                    <div class="task-num">TASK 06</div>
                                     <h4>Data Purge Cleanup</h4>
-
                                     <ul>
-                                        <li>Store four computer operating systems string codes</li>
+                                        <li>Store four computer operating systems codes</li>
                                         <li>Apply <span>remove()</span> to erase one specific title</li>
-                                        <li>Apply <span>del</span> to clear the tailing element target index</li>
+                                        <li>Apply <span>del</span> to clear the tailing element target</li>
                                     </ul>
-
                                 </div>
 
                             </div>

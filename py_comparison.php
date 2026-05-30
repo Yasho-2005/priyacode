@@ -38,10 +38,6 @@
 
             <div class="python-page-wrapper">
 
-                <div class="python-breadcrumb">
-                    python-tutorial / <span>comparison_operators.py</span>
-                </div>
-
                 <div class="py-wrap">
 
                     <div class="py-topbar">
